@@ -35,7 +35,7 @@ jobs:
   deploy:
     name: Deploy to Self-Hosted Runner
     needs: test
-    runs-on: [self-hosted, linux, node-deploy]
+    runs-on: [self-hosted]
 
     steps:
       - name: Checkout code
