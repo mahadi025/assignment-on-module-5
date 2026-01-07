@@ -41,6 +41,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Install PM2
+        run: npm install -g pm2
+
       - name: Download test results artifact
         uses: actions/download-artifact@v4
         with:
