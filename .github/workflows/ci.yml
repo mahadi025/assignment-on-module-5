@@ -54,14 +54,11 @@ jobs:
         with:
           name: test-results
 
-      - name: Display test results
-        run: |
-          echo "===== TEST RESULTS ====="
-          cat test-results.txt
-
       - name: Install dependencies
-        run: npm install --production
+        run: npm install
+
+      - name: Removes existing process if running
+        run: pm2 delete node-app || true
 
       - name: Deploy application
-        run: |
-          pm2 restart server || pm2 start src/server.js --name server
+        run: pm2 restart server || pm2 start src/server.js --name node-app
